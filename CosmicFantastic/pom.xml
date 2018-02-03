@@ -5,6 +5,18 @@
 	<artifactId>CosmicFantastic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<developers>
+		<developer>
+			<id>MatheusMFranco</id>
+			<name>Matheus M. Franco</name>
+			<email>francomathmagal@gmail.com</email>
+			<url>https://github.com/MatheusMFranco</url>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
 	<dependencies>
 
 		<dependency>

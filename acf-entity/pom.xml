@@ -1,6 +1,40 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>br.com.alreadyhas.cf</groupId>
-  <artifactId>acf-entity</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.alreadyhas.cf</groupId>
+	<artifactId>acf-entity</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<repositories>
+		<repository>
+			<id>oss.sonatype.org</id>
+			<name>OSS Sonatype Staging</name>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+		</repository>
+
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.0-RC1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.persistence</groupId>
+					<artifactId>commonj.sdo</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
 </project>

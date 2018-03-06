@@ -32,4 +32,12 @@ public abstract class DateUtil {
 	public static String getDefaultFormat(Date date){
 		return DateFormat.getDateInstance().format(date == null ? new Date() : date);
 	}
+
+	/**
+	 * Returns the Brazilian date format.
+	 * @return new Date in dd/MM/yyyy
+	 */
+	public static String getDefaultFormat(){
+		return getDefaultFormat(null);
+	}
 }

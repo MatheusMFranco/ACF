@@ -23,6 +23,13 @@
 	</repositories>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>br.com.alreadyhas.cf</groupId>
+			<artifactId>acf-support</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -33,6 +40,13 @@
 					<artifactId>commonj.sdo</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.16</version>
+			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>

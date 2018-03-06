@@ -21,13 +21,16 @@ public class DateUtilTest extends SimpleTest{
 				Calendar.getInstance().getTime(),
 		};
 
-		List<String> datesTest      = new ArrayList<>();
-		List<String> datesExpecteds = new ArrayList<>();
+		List<String> datesTest      = new ArrayList<String>();
+		List<String> datesExpecteds = new ArrayList<String>();
 
 		for(Date date : dates){
 			datesTest.add(DateUtil.getDefaultFormat(date));
 			datesExpecteds.add(dateFormat.format(date));
 		}
+
+		datesTest.add(DateUtil.getDefaultFormat());
+		datesExpecteds.add(dateFormat.format(new Date()));
 
 		equalsToArray(datesTest, datesExpecteds);
 	}

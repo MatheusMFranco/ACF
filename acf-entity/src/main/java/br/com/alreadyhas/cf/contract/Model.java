@@ -6,6 +6,9 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
+import br.com.alreadyhas.cf.util.DateUtil;
+import lombok.Data;
+
 /**
  * <h2>Model</h2>
  * <hr />
@@ -19,6 +22,7 @@ import javax.persistence.Id;
  * @see br.com.alreadyhas.cf.model.*
  *
  */
+@Data
 public abstract class Model implements Serializable{
 
 	private static final long serialVersionUID = 7711505254065841534L;
@@ -30,49 +34,15 @@ public abstract class Model implements Serializable{
 	@Column(name = "REGISTRATION_DATE", nullable = false)
 	private Date registrationDate;
 
-	public Long getId() {
-		return id;
-	}
+	public Model() {/**/}
 
-	public void setId(Long id) {
+	public Model(Long id) {
 		this.id = id;
-	}
-
-	public Date getRegistrationDate() {
-		return registrationDate;
-	}
-
-	public void setRegistrationDate(Date registrationDate) {
-		this.registrationDate = registrationDate;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Model other = (Model) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
 	}
 
 	@Override
 	public String toString() {
-		return String.format(" | Class: %s | ID: %d | ", getClass().getSimpleName(), id);
+		return String.format(" | Date: %s | Class: %s | ID: %d | ", DateUtil.getDefaultFormat(), getClass().getSimpleName(), id);
 	}
+
 }

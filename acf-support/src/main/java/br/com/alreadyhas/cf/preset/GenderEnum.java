@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.preset;
 /**
  * <h2>GenderEnum</h2>
  * <hr />
- * <p>Essa classe representa o personagem que o jogador irá escolher na partida.</p>
+ * <p>This class represents the character's gender.</p>
  * <hr />
  * 
  * @author Matheus Franco

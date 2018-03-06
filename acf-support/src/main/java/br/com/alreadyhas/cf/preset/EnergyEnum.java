@@ -1,5 +1,7 @@
 package br.com.alreadyhas.cf.preset;
 
+import lombok.Getter;
+
 /**
  * <h2>EnergyEnum</h2>
  * <hr />
@@ -18,13 +20,11 @@ public enum EnergyEnum {
 	DELICIA ("Used for magical abilities, they do not need to have brute or mental strength."),
 	ZOEIRA  ("Serves for any type of skill."); 
 
+	@Getter
 	private String description;
 
 	private EnergyEnum(String description) {
 		this.description = description;
 	}
 
-	public String getDescription() {
-		return description;
-	}
 }

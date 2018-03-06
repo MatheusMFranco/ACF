@@ -1,5 +1,7 @@
 package br.com.alreadyhas.cf.preset;
 
+import lombok.Getter;
+
 /**
  * <h2>GenderEnum</h2>
  * <hr />
@@ -31,8 +33,13 @@ public enum GenderEnum {
 	ID_RATHER_NOT_WITNESS (16, ""   , "I'd rather not witness"),
 	ALL                   (17, "ALL", "All");
 
+	@Getter
 	private Integer code;
+
+	@Getter
 	private String symbol;
+
+	@Getter
 	private String description;
 
 	private GenderEnum(Integer code, String symbol, String description) {
@@ -40,17 +47,4 @@ public enum GenderEnum {
 		this.symbol = symbol;
 		this.description = description;
 	}
-
-	public Integer getCode() {
-		return code;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public String getSymbol() {
-		return symbol;
-	}
-
 }

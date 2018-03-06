@@ -43,16 +43,4 @@ public class ModelTest{
 		phrasesExpecteds.add(model.toString());
 	}
 
-	public static void main(String[] args) {
-		Model model = new Card();
-		StringBuilder modelToString = new StringBuilder(" | Date: ")
-		.append(DateUtil.getDefaultFormat())
-		.append(" | Class: ")
-		.append(model.getClass().getSimpleName())
-		.append(" | ID: ")
-		.append(model.getId())
-		.append(" | ");
-		System.out.println(modelToString.toString());
-		System.out.println(model.toString());
-	}
 }

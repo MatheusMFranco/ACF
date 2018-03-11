@@ -14,17 +14,17 @@ import lombok.Setter;
  * <hr />
  * 
  * @author Matheus Franco
- * @category POJO
+ * @category Model
  * @version 0.1
  * @see br.com.alreadyhas.cf.preset.GenderEnum
- * @see br.com.alreadyhas.cf.model.Specie
- * @see br.com.alreadyhas.cf.model.Faction
+ * @see br.com.alreadyhas.cf.preset.SpecieEnum
+ * @see br.com.alreadyhas.cf.preset.FactionEnum
  *
  */
 @Entity
 public class Character extends Model {
 
-	private static final long serialVersionUID = 3973282144614413118L;
+	private static final long serialVersionUID = -7953605102474222091L;
 
 	@Getter
 	@Setter
@@ -42,18 +42,24 @@ public class Character extends Model {
 	private String alterEgo;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.GenderEnum
+	 * @see br.com.alreadyhas.cf.preset.GenderEnum
 	 **/
 	@Getter
 	@Setter
 	@Column(name = "GENDER", nullable = false)
 	private Integer gender;
 
+	/**
+	 * @see br.com.alreadyhas.cf.model.SpecieEnum
+	 **/
 	@Getter
 	@Setter
 	@Column(name = "SPECIE", nullable = false)
 	private Integer specie;
 
+	/**
+	 * @see br.com.alreadyhas.cf.model.FactionEnum
+	 **/
 	@Getter
 	@Setter
 	@Column(name = "FACTION", nullable = false)
@@ -63,6 +69,11 @@ public class Character extends Model {
 
 	public Character(Long id) {
 		super(id);
+	}
+
+	public Character(String name, Integer faction) {
+		this.name = name;
+		this.faction = faction;
 	}
 
 	@Override

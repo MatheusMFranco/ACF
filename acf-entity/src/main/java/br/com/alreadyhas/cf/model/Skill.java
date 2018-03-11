@@ -10,52 +10,65 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h2>Catchphrase</h2>
+ * <h2>Skill</h2>
  * <hr />
- * <p>This class represents the catchphrase that will be said by the characters.</p>
+ * <p>This class represents the character's skill.</p>
  * <hr />
  * 
  * @author Matheus Franco
  * @category Model
  * @version 0.1
  * @see br.com.alreadyhas.cf.model.Character
+ *
  */
 @Entity
-public class Catchphrase extends Model {
+public class Skill extends Model {
 
-	private static final long serialVersionUID = -78782444672333374L;
+	private static final long serialVersionUID = 8608826214878309682L;
 
-	@Getter
-	@Setter
-	@Column(name = "PHRASE", nullable = false)
-	private String phrase;
-
-	/**
-	 * @see br.com.alreadyhas.cf.model.Character
-	 **/
 	@Getter
 	@Setter
 	@ManyToOne
-	@JoinColumn(name = "CATCHPHRASE_CHARACTER", nullable = false)
+	@JoinColumn(name = "SKILL_CHARACTER", nullable = false)
 	private Character character;
 
-	public Catchphrase() {/**/}
+	@Getter
+	@Setter
+	@Column(name = "SKILL_NAME", nullable = false)
+	private String name;
 
-	public Catchphrase(Long id) {
+	@Getter
+	@Setter
+	@Column(name = "SKILL_DESCRIPTION", nullable = false)
+	private String description;
+
+	@Getter
+	@Setter
+	@Column(name = "PHOTO", nullable = false)
+	private byte[] photo;
+
+	@Getter
+	@Setter
+	@Column(name = "POINTS", nullable = false)
+	private Integer points;
+
+	public Skill() {/**/}
+
+	public Skill(Long id) {
 		super(id);
 	}
 
-	public Catchphrase(String phrase, Character character) {
-		this.phrase = phrase;
+	public Skill(Character character, String name) {
 		this.character = character;
-	}	
+		this.name = name;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((phrase == null) ? 0 : phrase.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -67,16 +80,16 @@ public class Catchphrase extends Model {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Catchphrase other = (Catchphrase) obj;
+		Skill other = (Skill) obj;
 		if (character == null) {
 			if (other.character != null)
 				return false;
 		} else if (!character.equals(other.character))
 			return false;
-		if (phrase == null) {
-			if (other.phrase != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!phrase.equals(other.phrase))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}

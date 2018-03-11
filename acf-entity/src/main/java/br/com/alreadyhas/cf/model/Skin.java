@@ -10,52 +10,60 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h2>Catchphrase</h2>
+ * <h2>Skin</h2>
  * <hr />
- * <p>This class represents the catchphrase that will be said by the characters.</p>
+ * <p>This class represents the character's skin.</p>
  * <hr />
  * 
  * @author Matheus Franco
  * @category Model
  * @version 0.1
  * @see br.com.alreadyhas.cf.model.Character
+ *
  */
 @Entity
-public class Catchphrase extends Model {
+public class Skin extends Model {
 
-	private static final long serialVersionUID = -78782444672333374L;
+	private static final long serialVersionUID = 6857729531361975491L;
 
-	@Getter
-	@Setter
-	@Column(name = "PHRASE", nullable = false)
-	private String phrase;
-
-	/**
-	 * @see br.com.alreadyhas.cf.model.Character
-	 **/
 	@Getter
 	@Setter
 	@ManyToOne
-	@JoinColumn(name = "CATCHPHRASE_CHARACTER", nullable = false)
+	@JoinColumn(name = "SKIN_CHARACTER", nullable = false)
 	private Character character;
 
-	public Catchphrase() {/**/}
+	@Getter
+	@Setter
+	@Column(name = "PHOTO", nullable = false)
+	private byte[] photo;
 
-	public Catchphrase(Long id) {
+	@Getter
+	@Setter
+	@Column(name = "SKIN_NAME", nullable = false)
+	private String name;
+
+	@Getter
+	@Setter
+	@Column(name = "SKIN_DESCRIPTION", nullable = false)
+	private String description;
+
+	public Skin() {/**/}
+
+	public Skin(Long id) {
 		super(id);
 	}
 
-	public Catchphrase(String phrase, Character character) {
-		this.phrase = phrase;
+	public Skin(Character character, String name) {
 		this.character = character;
-	}	
+		this.name = name;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((phrase == null) ? 0 : phrase.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -67,16 +75,16 @@ public class Catchphrase extends Model {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Catchphrase other = (Catchphrase) obj;
+		Skin other = (Skin) obj;
 		if (character == null) {
 			if (other.character != null)
 				return false;
 		} else if (!character.equals(other.character))
 			return false;
-		if (phrase == null) {
-			if (other.phrase != null)
+		if (name == null) {
+			if (other.name != null)
 				return false;
-		} else if (!phrase.equals(other.phrase))
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}

@@ -1,5 +1,7 @@
 package br.com.alreadyhas.cf.preset;
 
+import br.com.alreadyhas.cf.constract.Preset;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 
 /**
@@ -13,7 +15,7 @@ import lombok.Getter;
  * @version 0.1
  *
  */
-public enum GenderEnum {
+public enum GenderEnum implements Preset {
 
 	MALE                  (1,  "M"  , "Male"),
 	FEMALE                (2,  "F"  , "Female"),
@@ -46,5 +48,14 @@ public enum GenderEnum {
 		this.code = code;
 		this.symbol = symbol;
 		this.description = description;
+	}
+
+	public static GenderEnum fromId(Integer id) throws PresetException {
+		for (GenderEnum genderEnum : GenderEnum.values()) {
+			if (genderEnum.getCode().equals(id)) {
+				return genderEnum;
+			}
+		}
+		throw new PresetException(SpecieEnum.class, id);
 	}
 }

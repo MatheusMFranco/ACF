@@ -4,6 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.preset.FactionEnum;
+import br.com.alreadyhas.cf.preset.GenderEnum;
+import br.com.alreadyhas.cf.preset.SpecieEnum;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -45,7 +49,6 @@ public class Character extends Model {
 	 * @see br.com.alreadyhas.cf.preset.GenderEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "GENDER", nullable = false)
 	private Integer gender;
 
@@ -53,7 +56,6 @@ public class Character extends Model {
 	 * @see br.com.alreadyhas.cf.model.SpecieEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "SPECIE", nullable = false)
 	private Integer specie;
 
@@ -61,7 +63,6 @@ public class Character extends Model {
 	 * @see br.com.alreadyhas.cf.model.FactionEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "FACTION", nullable = false)
 	private Integer faction;
 
@@ -74,6 +75,30 @@ public class Character extends Model {
 	public Character(String name, Integer faction) {
 		this.name = name;
 		this.faction = faction;
+	}
+
+	public void setGender(Integer gender){
+		try {
+			this.gender = GenderEnum.fromId(gender).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Gender", gender);
+		}
+	}
+
+	public void setSpecie(Integer specie){
+		try {
+			this.specie = SpecieEnum.fromId(specie).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Specie", specie);
+		}
+	}
+
+	public void setFaction(Integer faction){
+		try {
+			this.faction = FactionEnum.fromId(faction).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Faction", faction);
+		}
 	}
 
 	@Override

@@ -5,10 +5,12 @@ import static org.junit.Assert.assertArrayEquals;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
+
 /**
- * <h2>SimpleTest</h2>
+ * <h2>EnumTest</h2>
  * <hr />
- * <p>Class made to facilitate the creation of tests.</p>
+ * <p>Class made to facilitate the creation of enum tests .</p>
  * <hr />
  * 
  * @author Matheus Franco
@@ -16,14 +18,16 @@ import java.util.List;
  * @version 0.1
  *
  */
-public abstract class SimpleTest {
+public abstract class EnumTest {
 
-	public void equalsToArray(List<?> expecteds, List<?>actuals){
-		assertArrayEquals(expecteds.toArray(), actuals.toArray());
-	}
+	public abstract void verifyException();
+	public abstract void verifyEnumerationCode();
+	public abstract void verifyEnumeration();
 
 	public void assertPreset(Integer[] expecteds, List<Integer> actuals) {
 		Arrays.sort(actuals.toArray());
 		assertArrayEquals(expecteds, actuals.toArray());
+		Assert.assertTrue(expecteds.length == actuals.size());
 	}
+
 }

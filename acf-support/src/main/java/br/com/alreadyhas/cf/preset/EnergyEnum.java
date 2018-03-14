@@ -1,5 +1,7 @@
 package br.com.alreadyhas.cf.preset;
 
+import br.com.alreadyhas.cf.constract.Preset;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 
 /**
@@ -13,18 +15,31 @@ import lombok.Getter;
  * @version 0.1
  *
  */
-public enum EnergyEnum {
+public enum EnergyEnum implements Preset {
 
-	BIRL    ("It is used for skills that need to use the physical strength of the character."), 
-	DESU    ("This ability is used for skills that need to use the mind."),
-	DELICIA ("Used for magical abilities, they do not need to have brute or mental strength."),
-	ZOEIRA  ("Serves for any type of skill."); 
+	BIRL    (1, "It is used for skills that need to use the physical strength of the character."), 
+	DESU    (2, "This ability is used for skills that need to use the mind."),
+	DELICIA (3, "Used for magical abilities, they do not need to have brute or mental strength."),
+	ZOEIRA  (4, "Serves for any type of skill."); 
+
+	@Getter
+	private Integer code;
 
 	@Getter
 	private String description;
 
-	private EnergyEnum(String description) {
+	private EnergyEnum(Integer code, String description) {
+		this.code        = code;
 		this.description = description;
+	}
+
+	public static EnergyEnum fromId(Integer id) throws PresetException {
+		for (EnergyEnum energyEnum : EnergyEnum.values()) {
+			if (energyEnum.getCode().equals(id)) {
+				return energyEnum;
+			}
+		}
+		throw new PresetException(EnergyEnum.class, id);
 	}
 
 }

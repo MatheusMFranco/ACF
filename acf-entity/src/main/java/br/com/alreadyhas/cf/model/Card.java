@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.preset.CardTypeEnum;
+import br.com.alreadyhas.cf.preset.ElementEnum;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +21,7 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.preset.CardTypeEnum
+ * @see br.com.alreadyhas.cf.preset.CardTypeEnumTest
  * @see br.com.alreadyhas.cf.preset.ElementEnum
  * @see br.com.alreadyhas.cf.model.Pet
  *
@@ -42,15 +45,13 @@ public class Card extends Model {
 	 * @see br.com.alreadyhas.cf.preset.ElementEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "ELEMENT", nullable = false)
 	private Integer element;
 
 	/**
-	 * @see br.com.alreadyhas.cf.preset.CardTypeEnum
+	 * @see br.com.alreadyhas.cf.preset.CardTypeEnumTest
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "CARD_TYPE", nullable = false)
 	private Integer type;
 
@@ -103,10 +104,26 @@ public class Card extends Model {
 		this.type = type;
 	}
 
+	public void setType(Integer type){
+		try {
+			this.type = CardTypeEnum.fromId(type).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Type", type);
+		}
+	}
+
+	public void setElement(Integer element){
+		try {
+			this.element = ElementEnum.fromId(element).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Element", element);
+		}
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((element == null) ? 0 : element.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
@@ -115,28 +132,37 @@ public class Card extends Model {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (!super.equals(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Card)) {
 			return false;
+		}
 		Card other = (Card) obj;
 		if (element == null) {
-			if (other.element != null)
+			if (other.element != null) {
 				return false;
-		} else if (!element.equals(other.element))
+			}
+		} else if (!element.equals(other.element)) {
 			return false;
+		}
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null) {
 				return false;
-		} else if (!name.equals(other.name))
+			}
+		} else if (!name.equals(other.name)) {
 			return false;
+		}
 		if (type == null) {
-			if (other.type != null)
+			if (other.type != null) {
 				return false;
-		} else if (!type.equals(other.type))
+			}
+		} else if (!type.equals(other.type)) {
 			return false;
+		}
 		return true;
 	}
 

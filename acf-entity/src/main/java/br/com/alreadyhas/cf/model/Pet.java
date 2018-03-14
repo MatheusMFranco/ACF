@@ -4,6 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.preset.FactionEnum;
+import br.com.alreadyhas.cf.preset.GenderEnum;
+import br.com.alreadyhas.cf.preset.PetTypeEnum;
+import br.com.alreadyhas.cf.preset.SpecieEnum;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,8 +23,8 @@ import lombok.Setter;
  * @version 0.1
  * @see br.com.alreadyhas.cf.preset.PetTypeEnum
  * @see br.com.alreadyhas.cf.preset.ElementEnum
- * @see br.com.alreadyhas.cf.model.Faction
- * @see br.com.alreadyhas.cf.model.Specie
+ * @see br.com.alreadyhas.cf.preset.FactionEnum
+ * @see br.com.alreadyhas.cf.preset.SpecieEnum
  *
  */
 @Entity
@@ -41,7 +46,6 @@ public class Pet extends Model {
 	 * @see br.com.alreadyhas.cf.preset.PetTypeEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "PET_TYPE", nullable = false)
 	private Integer type;
 
@@ -69,7 +73,6 @@ public class Pet extends Model {
 	 * @see br.com.alreadyhas.cf.preset.ElementEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "ELEMENT", nullable = false)
 	private Integer element;
 
@@ -77,7 +80,6 @@ public class Pet extends Model {
 	 * @see br.com.alreadyhas.cf.preset.FactionEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "FACTION", nullable = false)
 	private Integer faction;
 
@@ -85,7 +87,6 @@ public class Pet extends Model {
 	 * @see br.com.alreadyhas.cf.preset.SpecieEnum
 	 **/
 	@Getter
-	@Setter
 	@Column(name = "SPECIE", nullable = false)
 	private Integer specie;
 
@@ -104,6 +105,38 @@ public class Pet extends Model {
 		this.name = name;
 		this.type = type;
 		this.element = element;
+	}
+
+	public void setType(Integer type){
+		try {
+			this.type = PetTypeEnum.fromId(type).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Type", type);
+		}
+	}
+
+	public void setElement(Integer element){
+		try {
+			this.element = GenderEnum.fromId(element).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Element", element);
+		}
+	}
+
+	public void setSpecie(Integer specie){
+		try {
+			this.specie = SpecieEnum.fromId(specie).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Specie", specie);
+		}
+	}
+
+	public void setFaction(Integer faction){
+		try {
+			this.faction = FactionEnum.fromId(faction).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Faction", faction);
+		}
 	}
 
 	@Override

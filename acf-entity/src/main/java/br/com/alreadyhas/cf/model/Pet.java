@@ -35,19 +35,19 @@ public class Pet extends Model {
 	@Getter
 	@Setter
 	@Column(name = "PET_NAME", nullable = false)
-	private String name;
+	private String petName;
 
 	@Getter
 	@Setter
 	@Column(name = "PET_DESCRIPTION", nullable = false)
-	private String description;
+	private String petDescription;
 
 	/**
 	 * @see br.com.alreadyhas.cf.preset.PetTypeEnum
 	 **/
 	@Getter
 	@Column(name = "PET_TYPE", nullable = false)
-	private Integer type;
+	private Integer petType;
 
 	@Getter
 	@Setter
@@ -102,20 +102,20 @@ public class Pet extends Model {
 	}
 
 	public Pet(String name, Integer type, Integer element) {
-		this.name = name;
-		this.type = type;
+		this.petName = name;
+		this.petType = type;
 		this.element = element;
 	}
 
-	public void setType(Integer type){
+	public void setPetType(Integer type){
 		try {
-			this.type = PetTypeEnum.fromId(type).getCode();
+			this.petType = PetTypeEnum.fromId(type).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Type", type);
 		}
 	}
 
-	public void setElement(Integer element){
+	public void setPetElement(Integer element){
 		try {
 			this.element = GenderEnum.fromId(element).getCode();
 		} catch (PresetException e) {
@@ -123,7 +123,7 @@ public class Pet extends Model {
 		}
 	}
 
-	public void setSpecie(Integer specie){
+	public void setPetSpecie(Integer specie){
 		try {
 			this.specie = SpecieEnum.fromId(specie).getCode();
 		} catch (PresetException e) {
@@ -131,7 +131,7 @@ public class Pet extends Model {
 		}
 	}
 
-	public void setFaction(Integer faction){
+	public void setPetFaction(Integer faction){
 		try {
 			this.faction = FactionEnum.fromId(faction).getCode();
 		} catch (PresetException e) {
@@ -144,8 +144,8 @@ public class Pet extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((element == null) ? 0 : element.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((petName == null) ? 0 : petName.hashCode());
+		result = prime * result + ((petType == null) ? 0 : petType.hashCode());
 		return result;
 	}
 
@@ -163,15 +163,15 @@ public class Pet extends Model {
 				return false;
 		} else if (!element.equals(other.element))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (petName == null) {
+			if (other.petName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!petName.equals(other.petName))
 			return false;
-		if (type == null) {
-			if (other.type != null)
+		if (petType == null) {
+			if (other.petType != null)
 				return false;
-		} else if (!type.equals(other.type))
+		} else if (!petType.equals(other.petType))
 			return false;
 		return true;
 	}

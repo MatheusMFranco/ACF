@@ -33,7 +33,7 @@ public class ProfileAchievement extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "USER_ACHIEVEMENT", nullable = false)
-	private ProfileChampion user;
+	private ProfileChampion userProfile;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.Achievement
@@ -51,7 +51,7 @@ public class ProfileAchievement extends Model {
 	}
 
 	public ProfileAchievement(ProfileChampion user, Achievement achievement) {
-		this.user = user;
+		this.userProfile = user;
 		this.achievement = achievement;
 	}
 
@@ -60,7 +60,7 @@ public class ProfileAchievement extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((achievement == null) ? 0 : achievement.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + ((userProfile == null) ? 0 : userProfile.hashCode());
 		return result;
 	}
 
@@ -78,10 +78,10 @@ public class ProfileAchievement extends Model {
 				return false;
 		} else if (!achievement.equals(other.achievement))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (userProfile == null) {
+			if (other.userProfile != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!userProfile.equals(other.userProfile))
 			return false;
 		return true;
 	}

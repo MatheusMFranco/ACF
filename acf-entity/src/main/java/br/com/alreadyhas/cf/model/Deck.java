@@ -33,7 +33,7 @@ public class Deck extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "DECK_USER", nullable = false)
-	private ProfileChampion user;
+	private ProfileChampion userDeck;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.Card
@@ -42,7 +42,7 @@ public class Deck extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "CARD", nullable = false)
-	private Card card;
+	private Card cardDeck;
 
 	public Deck() {/**/}
 
@@ -51,8 +51,39 @@ public class Deck extends Model {
 	}
 
 	public Deck(ProfileChampion user, Card card) {
-		this.user = user;
-		this.card = card;
+		this.userDeck = user;
+		this.cardDeck = card;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((cardDeck == null) ? 0 : cardDeck.hashCode());
+		result = prime * result + ((userDeck == null) ? 0 : userDeck.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Deck other = (Deck) obj;
+		if (cardDeck == null) {
+			if (other.cardDeck != null)
+				return false;
+		} else if (!cardDeck.equals(other.cardDeck))
+			return false;
+		if (userDeck == null) {
+			if (other.userDeck != null)
+				return false;
+		} else if (!userDeck.equals(other.userDeck))
+			return false;
+		return true;
 	}
 
 }

@@ -18,10 +18,8 @@ public class AchievementTest implements ModelTest{
 		test.verifyTrue(odd, even);
 
 		//Test #2: All values by constructor
-		byte[] photoOdd = {1, 2, 3};
-		byte[] photoEven = {1, 2, 3};
-		odd = new Achievement("A", "B", photoOdd);
-		even = new Achievement("A", "B", photoEven);
+		odd = new Achievement("A", "B");
+		even = new Achievement("A", "B");
 		test.verifyTrue(odd, even);
 
 		//Test #3: Id by set
@@ -33,8 +31,16 @@ public class AchievementTest implements ModelTest{
 		test.verifyTrue(new Achievement(1L), new Achievement(1L));
 
 		//Test #5: All values by set
-		test.verifyTrue(build(photoOdd), build(photoEven));
+		test.verifyTrue(build(), build());
 
+		//Test #6: Photo
+		byte[] photoOdd = {9};
+		byte[] photoEven = {10};
+		odd = new Achievement();
+		odd.setAchievementPhoto(photoOdd);
+		even = new Achievement();
+		even.setAchievementPhoto(photoEven);
+		test.verifyTrue(odd, even);
 	}
 
 	@Test
@@ -42,47 +48,35 @@ public class AchievementTest implements ModelTest{
 
 		TestVerify test = TestVerify.getInstance();
 
-		//Test #6: Id by constructor
+		//Test #7: Id by constructor
 		test.verifyFalse(new Achievement(1L), new Achievement(2L));
 
-		//Test #7: All values by constructor
-		byte[] photoOdd =  {5, 6, 7};
-		byte[] photoEven = {1, 2, 3};
-		Achievement odd = new Achievement("A", "B", photoOdd);
-		Achievement even = new Achievement("B", "A", photoEven);
+		//Test #8: All values by constructor
+		Achievement odd = new Achievement("A", "B");
+		Achievement even = new Achievement("B", "A");
 		test.verifyFalse(odd, even);
 
-		//Test #8: Name
+		//Test #9: Name
 		odd = new Achievement();
-		odd.setName("A");
+		odd.setAchievementName("A");
 		even = new Achievement();
-		even.setName("B");
+		even.setAchievementName("B");
 		test.verifyFalse(odd, even);
 
-		//Test #9: Description
+		//Test #10: Description
 		odd = new Achievement();
-		odd.setDescription("A");
+		odd.setAchievementDescription("A");
 		even = new Achievement();
-		even.setDescription("B");
-		test.verifyFalse(odd, even);
-
-		//Test #10: Photo
-		photoOdd[1] = 9;
-		photoEven[1] = 10;
-		odd = new Achievement();
-		odd.setPhoto(photoOdd);
-		even = new Achievement();
-		even.setPhoto(photoEven);
+		even.setAchievementDescription("B");
 		test.verifyFalse(odd, even);
 
 	}
 
-	private Achievement build(byte[] photo1) {
+	private Achievement build() {
 		Achievement achievement = new Achievement();
 		achievement.setId(1L);
-		achievement.setDescription("A");
-		achievement.setName("B");
-		achievement.setPhoto(photo1);
+		achievement.setAchievementDescription("A");
+		achievement.setAchievementName("B");
 		return achievement;
 	}
 

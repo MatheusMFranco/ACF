@@ -33,12 +33,12 @@ public class Character extends Model {
 	@Getter
 	@Setter
 	@Column(name = "CHARACTER_NAME", nullable = false)
-	private String name;
+	private String characterName;
 
 	@Getter
 	@Setter
 	@Column(name = "CHARACTER_DESCRIPTION", nullable = false)
-	private String description;
+	private String characterDescription;
 
 	@Getter
 	@Setter
@@ -73,11 +73,11 @@ public class Character extends Model {
 	}
 
 	public Character(String name, Integer faction) {
-		this.name = name;
+		this.characterName = name;
 		this.faction = faction;
 	}
 
-	public void setGender(Integer gender){
+	public void setCharacterGender(Integer gender){
 		try {
 			this.gender = GenderEnum.fromId(gender).getCode();
 		} catch (PresetException e) {
@@ -85,7 +85,7 @@ public class Character extends Model {
 		}
 	}
 
-	public void setSpecie(Integer specie){
+	public void setCharacterSpecie(Integer specie){
 		try {
 			this.specie = SpecieEnum.fromId(specie).getCode();
 		} catch (PresetException e) {
@@ -93,7 +93,7 @@ public class Character extends Model {
 		}
 	}
 
-	public void setFaction(Integer faction){
+	public void setCharacterFaction(Integer faction){
 		try {
 			this.faction = FactionEnum.fromId(faction).getCode();
 		} catch (PresetException e) {
@@ -106,7 +106,7 @@ public class Character extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((faction == null) ? 0 : faction.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((characterName == null) ? 0 : characterName.hashCode());
 		return result;
 	}
 
@@ -124,10 +124,10 @@ public class Character extends Model {
 				return false;
 		} else if (!faction.equals(other.faction))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (characterName == null) {
+			if (other.characterName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!characterName.equals(other.characterName))
 			return false;
 		return true;
 	}

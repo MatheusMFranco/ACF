@@ -32,7 +32,7 @@ public class Friendship extends Model {
 	@Getter
 	@Setter
 	@Column(name = "FRIENDSHIP_USER", nullable = false)
-	private Integer user;
+	private Integer friendShipUser;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.ProfileChampion
@@ -54,7 +54,7 @@ public class Friendship extends Model {
 	}
 
 	public Friendship(Integer user, Integer friend, Integer amountBattle) {
-		this.user = user;
+		this.friendShipUser = user;
 		this.friend = friend;
 		this.amountBattle = amountBattle;
 	}
@@ -65,7 +65,7 @@ public class Friendship extends Model {
 		int result = super.hashCode();
 		result = prime * result + ((amountBattle == null) ? 0 : amountBattle.hashCode());
 		result = prime * result + ((friend == null) ? 0 : friend.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + ((friendShipUser == null) ? 0 : friendShipUser.hashCode());
 		return result;
 	}
 
@@ -88,10 +88,10 @@ public class Friendship extends Model {
 				return false;
 		} else if (!friend.equals(other.friend))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (friendShipUser == null) {
+			if (other.friendShipUser != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!friendShipUser.equals(other.friendShipUser))
 			return false;
 		return true;
 	}

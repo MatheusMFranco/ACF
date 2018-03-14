@@ -1,7 +1,5 @@
 package br.com.alreadyhas.cf.model;
 
-import java.util.Arrays;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -30,17 +28,17 @@ public class Achievement extends Model {
 	@Getter
 	@Setter
 	@Column(name = "ACHIEVEMENT_NAME", nullable = false)
-	private String name;
+	private String achievementName;
 
 	@Getter
 	@Setter
 	@Column(name = "ACHIEVEMENT_DESCRIPTION", nullable = false)
-	private String description;
+	private String achievementDescription;
 
 	@Getter
 	@Setter
 	@Column(name = "PHOTO", nullable = false)
-	private byte[] photo;
+	private byte[] achievementPhoto;
 
 	public Achievement() {/**/}
 
@@ -48,19 +46,17 @@ public class Achievement extends Model {
 		super(id);
 	}
 
-	public Achievement(String name, String description, byte[] photo) {
-		this.name = name;
-		this.description = description;
-		this.photo = photo;
+	public Achievement(String name, String description) {
+		this.achievementName = name;
+		this.achievementDescription = description;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + Arrays.hashCode(photo);
+		result = prime * result + ((achievementDescription == null) ? 0 : achievementDescription.hashCode());
+		result = prime * result + ((achievementName == null) ? 0 : achievementName.hashCode());
 		return result;
 	}
 
@@ -73,17 +69,15 @@ public class Achievement extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Achievement other = (Achievement) obj;
-		if (description == null) {
-			if (other.description != null)
+		if (achievementDescription == null) {
+			if (other.achievementDescription != null)
 				return false;
-		} else if (!description.equals(other.description))
+		} else if (!achievementDescription.equals(other.achievementDescription))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (achievementName == null) {
+			if (other.achievementName != null)
 				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (!Arrays.equals(photo, other.photo))
+		} else if (!achievementName.equals(other.achievementName))
 			return false;
 		return true;
 	}

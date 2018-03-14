@@ -39,7 +39,7 @@ public class CardTest implements ModelTest{
 		odd = new Card();
 		odd.setId(1L);
 		byte[] photoOdd = {1,3};
-		odd.setDescription("A");
+		odd.setCardDescription("A");
 		odd.setLevel(2);
 		odd.setPhoto(photoOdd);
 		odd.setPoints(2);
@@ -49,7 +49,7 @@ public class CardTest implements ModelTest{
 		even = new Card();
 		even.setId(1L);
 		byte[] photoEven = {2,1};
-		even.setDescription("B");
+		even.setCardDescription("B");
 		even.setLevel(3);
 		even.setPhoto(photoEven);
 		even.setPoints(3);
@@ -79,9 +79,9 @@ public class CardTest implements ModelTest{
 
 		//Test #10: Name Value
 		odd = new Card();
-		odd.setName("TWIST");
+		odd.setCardName("TWIST");
 		even = new Card();
-		even.setName("TWISTER");
+		even.setCardName("TWISTER");
 		test.verifyFalse(odd, even);
 
 		//Test #11: Element Value (ElementEnumTest apart)
@@ -103,7 +103,7 @@ public class CardTest implements ModelTest{
 	private Card build() {
 		Card card = new Card();
 		card.setId(1L);
-		card.setName("TWIST");
+		card.setCardName("TWIST");
 		card.setElement(ElementEnum.AIR.getCode());
 		card.setType(CardTypeEnum.BACKGROUND.getCode());
 		return card;

@@ -35,17 +35,17 @@ public class Skill extends Model {
 	@Getter
 	@Setter
 	@Column(name = "SKILL_NAME", nullable = false)
-	private String name;
+	private String skillName;
 
 	@Getter
 	@Setter
 	@Column(name = "SKILL_DESCRIPTION", nullable = false)
-	private String description;
+	private String skillDescription;
 
 	@Getter
 	@Setter
 	@Column(name = "PHOTO", nullable = false)
-	private byte[] photo;
+	private byte[] skillPhoto;
 
 	@Getter
 	@Setter
@@ -60,7 +60,7 @@ public class Skill extends Model {
 
 	public Skill(Character character, String name) {
 		this.character = character;
-		this.name = name;
+		this.skillName = name;
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class Skill extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((skillName == null) ? 0 : skillName.hashCode());
 		return result;
 	}
 
@@ -86,10 +86,10 @@ public class Skill extends Model {
 				return false;
 		} else if (!character.equals(other.character))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (skillName == null) {
+			if (other.skillName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!skillName.equals(other.skillName))
 			return false;
 		return true;
 	}

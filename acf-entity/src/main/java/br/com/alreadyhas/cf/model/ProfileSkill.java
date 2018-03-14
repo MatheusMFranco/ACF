@@ -32,8 +32,8 @@ public class ProfileSkill extends Model {
 	@Getter 
 	@Setter
 	@ManyToOne
-	@JoinColumn(name = "USER_ACHIEVEMENT", nullable = false)
-	private ProfileChampion user;
+	@JoinColumn(name = "USER_SKILL", nullable = false)
+	private ProfileChampion userSkill;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.Skill
@@ -51,7 +51,7 @@ public class ProfileSkill extends Model {
 	}
 
 	public ProfileSkill(ProfileChampion user, Skill skill) {
-		this.user = user;
+		this.userSkill = user;
 		this.skill = skill;
 	}
 
@@ -60,7 +60,7 @@ public class ProfileSkill extends Model {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + ((skill == null) ? 0 : skill.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime * result + ((userSkill == null) ? 0 : userSkill.hashCode());
 		return result;
 	}
 
@@ -78,10 +78,10 @@ public class ProfileSkill extends Model {
 				return false;
 		} else if (!skill.equals(other.skill))
 			return false;
-		if (user == null) {
-			if (other.user != null)
+		if (userSkill == null) {
+			if (other.userSkill != null)
 				return false;
-		} else if (!user.equals(other.user))
+		} else if (!userSkill.equals(other.userSkill))
 			return false;
 		return true;
 	}

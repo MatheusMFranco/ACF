@@ -30,22 +30,22 @@ public class Skin extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "SKIN_CHARACTER", nullable = false)
-	private Character character;
+	private Character skinCharacter;
 
 	@Getter
 	@Setter
 	@Column(name = "PHOTO", nullable = false)
-	private byte[] photo;
+	private byte[] skinPhoto;
 
 	@Getter
 	@Setter
 	@Column(name = "SKIN_NAME", nullable = false)
-	private String name;
+	private String skinName;
 
 	@Getter
 	@Setter
 	@Column(name = "SKIN_DESCRIPTION", nullable = false)
-	private String description;
+	private String skinDescription;
 
 	public Skin() {/**/}
 
@@ -54,16 +54,16 @@ public class Skin extends Model {
 	}
 
 	public Skin(Character character, String name) {
-		this.character = character;
-		this.name = name;
+		this.skinCharacter = character;
+		this.skinName = name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((character == null) ? 0 : character.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((skinCharacter == null) ? 0 : skinCharacter.hashCode());
+		result = prime * result + ((skinName == null) ? 0 : skinName.hashCode());
 		return result;
 	}
 
@@ -76,15 +76,15 @@ public class Skin extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Skin other = (Skin) obj;
-		if (character == null) {
-			if (other.character != null)
+		if (skinCharacter == null) {
+			if (other.skinCharacter != null)
 				return false;
-		} else if (!character.equals(other.character))
+		} else if (!skinCharacter.equals(other.skinCharacter))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (skinName == null) {
+			if (other.skinName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!skinName.equals(other.skinName))
 			return false;
 		return true;
 	}

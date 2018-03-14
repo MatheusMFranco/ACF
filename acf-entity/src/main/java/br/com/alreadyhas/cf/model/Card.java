@@ -34,19 +34,19 @@ public class Card extends Model {
 	@Getter
 	@Setter
 	@Column(name = "CARD_NAME", nullable = false)
-	private String name;
+	private String cardName;
 
 	@Getter
 	@Setter
 	@Column(name = "CARD_DESCRIPTION", nullable = false)
-	private String description;
+	private String cardDescription;
 
 	/**
 	 * @see br.com.alreadyhas.cf.preset.ElementEnum
 	 **/
 	@Getter
 	@Column(name = "ELEMENT", nullable = false)
-	private Integer element;
+	private Integer cardElement;
 
 	/**
 	 * @see br.com.alreadyhas.cf.preset.CardTypeEnumTest
@@ -99,8 +99,8 @@ public class Card extends Model {
 	}
 
 	public Card(String name, Integer element, Integer type) {
-		this.name = name;
-		this.element = element;
+		this.cardName = name;
+		this.cardElement = element;
 		this.type = type;
 	}
 
@@ -114,7 +114,7 @@ public class Card extends Model {
 
 	public void setElement(Integer element){
 		try {
-			this.element = ElementEnum.fromId(element).getCode();
+			this.cardElement = ElementEnum.fromId(element).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Element", element);
 		}
@@ -124,8 +124,8 @@ public class Card extends Model {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((element == null) ? 0 : element.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((cardElement == null) ? 0 : cardElement.hashCode());
+		result = prime * result + ((cardName == null) ? 0 : cardName.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
@@ -142,18 +142,18 @@ public class Card extends Model {
 			return false;
 		}
 		Card other = (Card) obj;
-		if (element == null) {
-			if (other.element != null) {
+		if (cardElement == null) {
+			if (other.cardElement != null) {
 				return false;
 			}
-		} else if (!element.equals(other.element)) {
+		} else if (!cardElement.equals(other.cardElement)) {
 			return false;
 		}
-		if (name == null) {
-			if (other.name != null) {
+		if (cardName == null) {
+			if (other.cardName != null) {
 				return false;
 			}
-		} else if (!name.equals(other.name)) {
+		} else if (!cardName.equals(other.cardName)) {
 			return false;
 		}
 		if (type == null) {

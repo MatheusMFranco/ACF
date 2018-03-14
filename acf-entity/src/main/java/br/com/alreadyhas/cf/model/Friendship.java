@@ -18,7 +18,7 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.UserChampion
+ * @see br.com.alreadyhas.cf.model.ProfileChampion
  *
  */
 @Entity
@@ -27,7 +27,7 @@ public class Friendship extends Model {
 	private static final long serialVersionUID = 1893408591406642299L;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.UserChampion
+	 * @see br.com.alreadyhas.cf.model.ProfileChampion
 	 */
 	@Getter
 	@Setter
@@ -35,7 +35,7 @@ public class Friendship extends Model {
 	private Integer user;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.UserChampion
+	 * @see br.com.alreadyhas.cf.model.ProfileChampion
 	 */
 	@Getter
 	@Setter

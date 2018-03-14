@@ -17,7 +17,7 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.UserChampion
+ * @see br.com.alreadyhas.cf.model.ProfileChampion
  * @see br.com.alreadyhas.cf.model.Card
  *
  */
@@ -27,13 +27,13 @@ public class Deck extends Model {
 	private static final long serialVersionUID = 3429388085169326537L;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.UserChampion
+	 * @see br.com.alreadyhas.cf.model.ProfileChampion
 	 **/
 	@Getter 
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "DECK_USER", nullable = false)
-	private UserChampion user;
+	private ProfileChampion user;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.Card
@@ -50,7 +50,7 @@ public class Deck extends Model {
 		super(id);
 	}
 
-	public Deck(UserChampion user, Card card) {
+	public Deck(ProfileChampion user, Card card) {
 		this.user = user;
 		this.card = card;
 	}

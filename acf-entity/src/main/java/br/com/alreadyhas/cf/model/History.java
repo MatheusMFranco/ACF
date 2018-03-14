@@ -22,7 +22,7 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.UserChampion
+ * @see br.com.alreadyhas.cf.model.ProfileChampion
  *
  */
 @Entity
@@ -31,22 +31,22 @@ public class History extends Model {
 	private static final long serialVersionUID = 7474562726184311149L;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.UserChampion
+	 * @see br.com.alreadyhas.cf.model.ProfileChampion
 	 **/
 	@Getter 
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "USER_RED", nullable = false)
-	private UserChampion userRed;
+	private ProfileChampion userRed;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.UserChampion
+	 * @see br.com.alreadyhas.cf.model.ProfileChampion
 	 **/
 	@Getter 
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "USER_BLUE", nullable = false)
-	private UserChampion userBlue;
+	private ProfileChampion userBlue;
 
 	@Getter 
 	@Setter
@@ -59,7 +59,7 @@ public class History extends Model {
 		super(id);
 	}
 
-	public History(UserChampion userRed, UserChampion userBlue, byte[] moves) {
+	public History(ProfileChampion userRed, ProfileChampion userBlue, byte[] moves) {
 		this.userRed = userRed;
 		this.userBlue = userBlue;
 		this.moves = moves;

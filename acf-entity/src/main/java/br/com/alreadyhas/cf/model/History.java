@@ -1,13 +1,11 @@
 package br.com.alreadyhas.cf.model;
 
-import java.util.Arrays;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -59,17 +57,15 @@ public class History extends Model {
 		super(id);
 	}
 
-	public History(ProfileChampion userRed, ProfileChampion userBlue, byte[] moves) {
+	public History(ProfileChampion userRed, ProfileChampion userBlue) {
 		this.userRed = userRed;
 		this.userBlue = userBlue;
-		this.moves = moves;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Arrays.hashCode(moves);
 		result = prime * result + ((userBlue == null) ? 0 : userBlue.hashCode());
 		result = prime * result + ((userRed == null) ? 0 : userRed.hashCode());
 		return result;
@@ -84,8 +80,6 @@ public class History extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		History other = (History) obj;
-		if (!Arrays.equals(moves, other.moves))
-			return false;
 		if (userBlue == null) {
 			if (other.userBlue != null)
 				return false;
@@ -98,4 +92,5 @@ public class History extends Model {
 			return false;
 		return true;
 	}
+
 }

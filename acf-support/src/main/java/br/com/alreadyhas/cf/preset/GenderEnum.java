@@ -1,6 +1,6 @@
 package br.com.alreadyhas.cf.preset;
 
-import br.com.alreadyhas.cf.constract.Preset;
+import br.com.alreadyhas.cf.preset.contract.Preset;
 import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 

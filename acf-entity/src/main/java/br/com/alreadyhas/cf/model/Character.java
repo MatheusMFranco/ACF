@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.FactionEnum;
 import br.com.alreadyhas.cf.preset.GenderEnum;
 import br.com.alreadyhas.cf.preset.SpecieEnum;
@@ -50,21 +50,21 @@ public class Character extends Model {
 	 **/
 	@Getter
 	@Column(name = "GENDER", nullable = false)
-	private Integer gender;
+	private Integer characterGender;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.SpecieEnum
+	 * @see br.com.alreadyhas.cf.preset.SpecieEnum
 	 **/
 	@Getter
 	@Column(name = "SPECIE", nullable = false)
-	private Integer specie;
+	private Integer characterSpecie;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.FactionEnum
+	 * @see br.com.alreadyhas.cf.preset.FactionEnum
 	 **/
 	@Getter
 	@Column(name = "FACTION", nullable = false)
-	private Integer faction;
+	private Integer characterFaction;
 
 	public Character() {/**/}
 
@@ -74,12 +74,12 @@ public class Character extends Model {
 
 	public Character(String name, Integer faction) {
 		this.characterName = name;
-		this.faction = faction;
+		this.characterFaction = faction;
 	}
 
 	public void setCharacterGender(Integer gender){
 		try {
-			this.gender = GenderEnum.fromId(gender).getCode();
+			this.characterGender = GenderEnum.fromId(gender).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Gender", gender);
 		}
@@ -87,7 +87,7 @@ public class Character extends Model {
 
 	public void setCharacterSpecie(Integer specie){
 		try {
-			this.specie = SpecieEnum.fromId(specie).getCode();
+			this.characterSpecie = SpecieEnum.fromId(specie).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Specie", specie);
 		}
@@ -95,7 +95,7 @@ public class Character extends Model {
 
 	public void setCharacterFaction(Integer faction){
 		try {
-			this.faction = FactionEnum.fromId(faction).getCode();
+			this.characterFaction = FactionEnum.fromId(faction).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Faction", faction);
 		}
@@ -105,7 +105,7 @@ public class Character extends Model {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((faction == null) ? 0 : faction.hashCode());
+		result = prime * result + ((characterFaction == null) ? 0 : characterFaction.hashCode());
 		result = prime * result + ((characterName == null) ? 0 : characterName.hashCode());
 		return result;
 	}
@@ -119,10 +119,10 @@ public class Character extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Character other = (Character) obj;
-		if (faction == null) {
-			if (other.faction != null)
+		if (characterFaction == null) {
+			if (other.characterFaction != null)
 				return false;
-		} else if (!faction.equals(other.faction))
+		} else if (!characterFaction.equals(other.characterFaction))
 			return false;
 		if (characterName == null) {
 			if (other.characterName != null)

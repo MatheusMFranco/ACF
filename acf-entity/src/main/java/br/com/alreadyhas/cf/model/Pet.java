@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.FactionEnum;
 import br.com.alreadyhas.cf.preset.GenderEnum;
 import br.com.alreadyhas.cf.preset.PetTypeEnum;
@@ -74,21 +74,21 @@ public class Pet extends Model {
 	 **/
 	@Getter
 	@Column(name = "ELEMENT", nullable = false)
-	private Integer element;
+	private Integer petElement;
 
 	/**
 	 * @see br.com.alreadyhas.cf.preset.FactionEnum
 	 **/
 	@Getter
 	@Column(name = "FACTION", nullable = false)
-	private Integer faction;
+	private Integer petFaction;
 
 	/**
 	 * @see br.com.alreadyhas.cf.preset.SpecieEnum
 	 **/
 	@Getter
 	@Column(name = "SPECIE", nullable = false)
-	private Integer specie;
+	private Integer petSpecie;
 
 	@Getter
 	@Setter
@@ -104,7 +104,7 @@ public class Pet extends Model {
 	public Pet(String name, Integer type, Integer element) {
 		this.petName = name;
 		this.petType = type;
-		this.element = element;
+		this.petElement = element;
 	}
 
 	public void setPetType(Integer type){
@@ -117,7 +117,7 @@ public class Pet extends Model {
 
 	public void setPetElement(Integer element){
 		try {
-			this.element = GenderEnum.fromId(element).getCode();
+			this.petElement = GenderEnum.fromId(element).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Element", element);
 		}
@@ -125,7 +125,7 @@ public class Pet extends Model {
 
 	public void setPetSpecie(Integer specie){
 		try {
-			this.specie = SpecieEnum.fromId(specie).getCode();
+			this.petSpecie = SpecieEnum.fromId(specie).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Specie", specie);
 		}
@@ -133,7 +133,7 @@ public class Pet extends Model {
 
 	public void setPetFaction(Integer faction){
 		try {
-			this.faction = FactionEnum.fromId(faction).getCode();
+			this.petFaction = FactionEnum.fromId(faction).getCode();
 		} catch (PresetException e) {
 			PresetException.printSetMethod(e, getClass(), "Faction", faction);
 		}
@@ -143,7 +143,7 @@ public class Pet extends Model {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((element == null) ? 0 : element.hashCode());
+		result = prime * result + ((petElement == null) ? 0 : petElement.hashCode());
 		result = prime * result + ((petName == null) ? 0 : petName.hashCode());
 		result = prime * result + ((petType == null) ? 0 : petType.hashCode());
 		return result;
@@ -158,10 +158,10 @@ public class Pet extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Pet other = (Pet) obj;
-		if (element == null) {
-			if (other.element != null)
+		if (petElement == null) {
+			if (other.petElement != null)
 				return false;
-		} else if (!element.equals(other.element))
+		} else if (!petElement.equals(other.petElement))
 			return false;
 		if (petName == null) {
 			if (other.petName != null)

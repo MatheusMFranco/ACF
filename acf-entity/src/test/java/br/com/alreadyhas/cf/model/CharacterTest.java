@@ -89,11 +89,11 @@ public class CharacterTest implements ModelTest{
 	}
 
 	private Character build() {
-		Character Character = new Character();
-		Character.setId(1L);
-		Character.setCharacterName("Jack");
-		Character.setCharacterFaction(FactionEnum.FANTASTIC.getCode());
-		return Character;
+		Character character = new Character();
+		character.setId(1L);
+		character.setCharacterName("Jack");
+		character.setCharacterFaction(FactionEnum.FANTASTIC.getCode());
+		return character;
 	}
 
 }

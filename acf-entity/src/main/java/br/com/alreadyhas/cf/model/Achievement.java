@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
 import lombok.Setter;
 

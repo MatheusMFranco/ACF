@@ -5,7 +5,7 @@ import org.junit.Test;
 import br.com.alreadyhas.cf.base.ModelTest;
 import br.com.alreadyhas.cf.base.TestVerify;
 
-public class DeckTest implements ModelTest{
+public class FriendshipTest implements ModelTest{
 
 	@Test
 	public void verifyEquals(){
@@ -13,13 +13,13 @@ public class DeckTest implements ModelTest{
 		TestVerify test = TestVerify.getInstance();
 
 		//Test #1: None values
-		Deck odd = new Deck();
-		Deck even = new Deck();
+		Friendship odd = new Friendship();
+		Friendship even = new Friendship();
 		test.verifyTrue(odd, even);
 
 		//Test #2: All required values by constructor
-		odd = new Deck(new ProfileChampion(1L), new Card(1L));
-		even = new Deck(new ProfileChampion(1L), new Card(1L));
+		odd = new Friendship(1L, 1L);
+		even = new Friendship(1L, 1L);
 		test.verifyTrue(odd, even);
 
 		//Test #3: Id by set
@@ -28,7 +28,7 @@ public class DeckTest implements ModelTest{
 		test.verifyTrue(odd, even);
 
 		//Test #4: Id by constructor
-		test.verifyTrue(new Deck(1L), new Deck(1L));
+		test.verifyTrue(new Friendship(1L), new Friendship(1L));
 
 		//Test #5: All required values by Set
 		test.verifyTrue(build(), build());
@@ -41,11 +41,11 @@ public class DeckTest implements ModelTest{
 		TestVerify test = TestVerify.getInstance();
 
 		//Test #6: Id by constructor
-		test.verifyFalse(new Deck(1L), new Deck(2L));
+		test.verifyFalse(new Friendship(1L), new Friendship(2L));
 
 		//Test #7: All required values by constructor
-		Deck odd = new Deck(new ProfileChampion(1L), new Card(1L));
-		Deck even = new Deck(new ProfileChampion(2L), new Card(2L));
+		Friendship odd = new Friendship(1L, 1L);
+		Friendship even = new Friendship(2L, 2L);
 		test.verifyFalse(odd, even);
 
 		//Test #8: Id by set
@@ -53,28 +53,28 @@ public class DeckTest implements ModelTest{
 		even.setId(2L);
 		test.verifyFalse(odd, even);
 
-		//Test #9: ProfileChampion Value
-		odd = new Deck();
-		odd.setUserDeck(new ProfileChampion(1L));
-		even = new Deck();
-		even.setUserDeck(new ProfileChampion(2L));
+		//Test #9: Friend Value
+		odd = new Friendship();
+		odd.setFriend(1L);
+		even = new Friendship();
+		even.setFriend(2L);
 		test.verifyFalse(odd, even);
 
-		//Test #10: Card Value
-		odd = new Deck();
-		odd.setCardDeck(new Card(1L));
-		even = new Deck();
-		even.setCardDeck(new Card(2L));
+		//Test #10: FriendShipUser Value
+		odd = new Friendship();
+		odd.setFriendShipUser(1L);
+		even = new Friendship();
+		even.setFriendShipUser(2L);
 		test.verifyFalse(odd, even);
 
 	}
 
-	private Deck build() {
-		Deck deck = new Deck();
-		deck.setId(1L);
-		deck.setUserDeck(new ProfileChampion(1L));
-		deck.setCardDeck(new Card(1L));
-		return deck;
+	private Friendship build() {
+		Friendship friendship = new Friendship();
+		friendship.setId(1L);
+		friendship.setFriend(1L);
+		friendship.setFriendShipUser(1L);
+		return friendship;
 	}
 
 }

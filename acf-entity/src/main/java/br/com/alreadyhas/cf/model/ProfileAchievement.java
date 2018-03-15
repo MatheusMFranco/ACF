@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -26,7 +26,7 @@ public abstract class DateUtil {
 
 	/**
 	 * Returns the Brazilian date format.
-	 * @param date
+	 * @param date for the format 
 	 * @return dd/MM/yyyy
 	 */
 	public static String getDefaultFormat(Date date){

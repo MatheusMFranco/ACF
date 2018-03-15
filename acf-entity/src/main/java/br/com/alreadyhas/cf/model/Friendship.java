@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,7 +32,7 @@ public class Friendship extends Model {
 	@Getter
 	@Setter
 	@Column(name = "FRIENDSHIP_USER", nullable = false)
-	private Integer friendShipUser;
+	private Long friendShipUser;
 
 	/**
 	 * @see br.com.alreadyhas.cf.model.ProfileChampion
@@ -40,7 +40,7 @@ public class Friendship extends Model {
 	@Getter
 	@Setter
 	@Column(name = "FRIEND", nullable = false)
-	private Integer friend;
+	private Long friend;
 
 	@Getter
 	@Setter
@@ -53,17 +53,15 @@ public class Friendship extends Model {
 		super(id);
 	}
 
-	public Friendship(Integer user, Integer friend, Integer amountBattle) {
+	public Friendship(Long user, Long friend) {
 		this.friendShipUser = user;
 		this.friend = friend;
-		this.amountBattle = amountBattle;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((amountBattle == null) ? 0 : amountBattle.hashCode());
 		result = prime * result + ((friend == null) ? 0 : friend.hashCode());
 		result = prime * result + ((friendShipUser == null) ? 0 : friendShipUser.hashCode());
 		return result;
@@ -78,11 +76,6 @@ public class Friendship extends Model {
 		if (getClass() != obj.getClass())
 			return false;
 		Friendship other = (Friendship) obj;
-		if (amountBattle == null) {
-			if (other.amountBattle != null)
-				return false;
-		} else if (!amountBattle.equals(other.amountBattle))
-			return false;
 		if (friend == null) {
 			if (other.friend != null)
 				return false;

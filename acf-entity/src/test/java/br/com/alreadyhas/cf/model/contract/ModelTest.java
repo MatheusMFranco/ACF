@@ -1,4 +1,4 @@
-package br.com.alreadyhas.cf.contract;
+package br.com.alreadyhas.cf.model.contract;
 
 import static org.junit.Assert.assertArrayEquals;
 

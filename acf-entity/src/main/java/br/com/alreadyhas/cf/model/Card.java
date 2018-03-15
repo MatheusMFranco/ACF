@@ -3,7 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import br.com.alreadyhas.cf.contract.Model;
+import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.CardTypeEnum;
 import br.com.alreadyhas.cf.preset.ElementEnum;
 import br.com.alreadyhas.cf.warn.PresetException;
@@ -21,7 +21,7 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.preset.CardTypeEnumTest
+ * @see br.com.alreadyhas.cf.preset.CardTypeEnum
  * @see br.com.alreadyhas.cf.preset.ElementEnum
  * @see br.com.alreadyhas.cf.model.Pet
  *

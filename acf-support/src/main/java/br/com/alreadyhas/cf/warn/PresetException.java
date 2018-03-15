@@ -2,7 +2,7 @@ package br.com.alreadyhas.cf.warn;
 
 import org.apache.log4j.Logger;
 
-import br.com.alreadyhas.cf.constract.Preset;
+import br.com.alreadyhas.cf.preset.contract.Preset;
 
 public class PresetException extends Exception {
 

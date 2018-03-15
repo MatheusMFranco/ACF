@@ -1,4 +1,4 @@
-package br.com.alreadyhas.cf.contract;
+package br.com.alreadyhas.cf.model.contract;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,7 +19,6 @@ import lombok.Data;
  * @author Matheus Franco
  * @category Base
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.*
  *
  */
 @Data

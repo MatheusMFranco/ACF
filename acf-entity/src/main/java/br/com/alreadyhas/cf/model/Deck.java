@@ -3,6 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -22,6 +23,7 @@ import lombok.Setter;
  *
  */
 @Entity
+@TableGenerator(name = "DECK")
 public class Deck extends Model {
 
 	private static final long serialVersionUID = 3429388085169326537L;

@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -22,6 +23,7 @@ import lombok.Setter;
  *
  */
 @Entity
+@TableGenerator(name = "FRIENDSHIP")
 public class Friendship extends Model {
 
 	private static final long serialVersionUID = 1893408591406642299L;

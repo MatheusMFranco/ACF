@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.CardTypeEnum;
@@ -27,6 +28,7 @@ import lombok.Setter;
  *
  */
 @Entity
+@TableGenerator(name = "CARD")
 public class Card extends Model {
 
 	private static final long serialVersionUID = -4348054744182289110L;

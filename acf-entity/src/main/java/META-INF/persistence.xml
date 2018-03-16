@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="acf" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<class>br.com.alreadyhas.cf.model.contract.Model</class>
+		<class>br.com.alreadyhas.cf.model.Achievement</class>
+		<class>br.com.alreadyhas.cf.model.Card</class>
+		<class>br.com.alreadyhas.cf.model.Catchphrase</class>
+		<class>br.com.alreadyhas.cf.model.Persona</class>
+		<class>br.com.alreadyhas.cf.model.Deck</class>
+		<class>br.com.alreadyhas.cf.model.Pet</class>
+		<class>br.com.alreadyhas.cf.model.ProfileAchievement</class>
+		<class>br.com.alreadyhas.cf.model.ProfileChampion</class>
+		<class>br.com.alreadyhas.cf.model.ProfileSkill</class>
+		<class>br.com.alreadyhas.cf.model.Skill</class>
+		<class>br.com.alreadyhas.cf.model.Skin</class>
+		<class>br.com.alreadyhas.cf.model.History</class>
+		<class>br.com.alreadyhas.cf.model.Friendship</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+     	 	<property name="eclipselink.ddl-generation.output-mode" value="database"/>
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

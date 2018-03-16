@@ -3,6 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -21,7 +22,8 @@ import lombok.Setter;
  * @see br.com.alreadyhas.cf.model.Skill
  *
  */
-@Entity
+@Entity(name = "PROFILE_SKILL")
+@TableGenerator(name = "PROFILE_SKILL")
 public class ProfileSkill extends Model {
 
 	private static final long serialVersionUID = -2532446241101559140L;

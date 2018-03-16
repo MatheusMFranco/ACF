@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -18,9 +19,10 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.Character
+ * @see br.com.alreadyhas.cf.model.Persona
  */
 @Entity
+@TableGenerator(name = "CATCHPHRASE")
 public class Catchphrase extends Model {
 
 	private static final long serialVersionUID = -78782444672333374L;
@@ -31,13 +33,13 @@ public class Catchphrase extends Model {
 	private String phrase;
 
 	/**
-	 * @see br.com.alreadyhas.cf.model.Character
+	 * @see br.com.alreadyhas.cf.model.Persona
 	 **/
 	@Getter
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "CATCHPHRASE_CHARACTER", nullable = false)
-	private Character character;
+	private Persona character;
 
 	public Catchphrase() {/**/}
 
@@ -45,7 +47,7 @@ public class Catchphrase extends Model {
 		super(id);
 	}
 
-	public Catchphrase(String phrase, Character character) {
+	public Catchphrase(String phrase, Persona character) {
 		this.phrase = phrase;
 		this.character = character;
 	}	

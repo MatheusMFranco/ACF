@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -21,6 +22,7 @@ import lombok.Setter;
  *
  */
 @Entity
+@TableGenerator(name = "ACHIEVEMENT")
 public class Achievement extends Model {
 
 	private static final long serialVersionUID = 3159229503562249969L;

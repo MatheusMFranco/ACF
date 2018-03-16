@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -18,10 +19,11 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.Character
+ * @see br.com.alreadyhas.cf.model.Persona
  *
  */
 @Entity
+@TableGenerator(name = "SKILL")
 public class Skill extends Model {
 
 	private static final long serialVersionUID = 8608826214878309682L;
@@ -30,7 +32,7 @@ public class Skill extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "SKILL_CHARACTER", nullable = false)
-	private Character character;
+	private Persona character;
 
 	@Getter
 	@Setter
@@ -58,7 +60,7 @@ public class Skill extends Model {
 		super(id);
 	}
 
-	public Skill(Character character, String name) {
+	public Skill(Persona character, String name) {
 		this.character = character;
 		this.skillName = name;
 	}

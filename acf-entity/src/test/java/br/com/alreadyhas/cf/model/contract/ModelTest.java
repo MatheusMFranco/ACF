@@ -8,33 +8,53 @@ import java.util.List;
 
 import org.junit.Test;
 
+import br.com.alreadyhas.cf.model.Achievement;
 import br.com.alreadyhas.cf.model.Card;
 import br.com.alreadyhas.cf.model.Catchphrase;
-import br.com.alreadyhas.cf.model.Character;
+import br.com.alreadyhas.cf.model.Deck;
+import br.com.alreadyhas.cf.model.Friendship;
+import br.com.alreadyhas.cf.model.History;
+import br.com.alreadyhas.cf.model.Persona;
+import br.com.alreadyhas.cf.model.Pet;
+import br.com.alreadyhas.cf.model.ProfileAchievement;
+import br.com.alreadyhas.cf.model.ProfileChampion;
+import br.com.alreadyhas.cf.model.ProfileSkill;
+import br.com.alreadyhas.cf.model.Skill;
+import br.com.alreadyhas.cf.model.Skin;
 import br.com.alreadyhas.cf.util.DateUtil;
 
 public class ModelTest{
 
+	private List<String> phrasesTest      = new ArrayList<String>();
+	private List<String> phrasesExpecteds = new ArrayList<String>();
+
 	@Test
 	public void verifyToString(){
 
-		List<String> phrasesTest      = new ArrayList<String>();
-		List<String> phrasesExpecteds = new ArrayList<String>();
-
 		for(Long i = 1L; i <= 10; i++){
-			createToStringTest(new Card(i),             "Card",        phrasesTest, phrasesExpecteds, i);
-			createToStringTest(new Catchphrase(i),      "Catchphrase", phrasesTest, phrasesExpecteds, i);
-			createToStringTest(new Character(i),        "Character",   phrasesTest, phrasesExpecteds, i);
+			createToStringTest(new Achievement(i)        );
+			createToStringTest(new Card(i)               );
+			createToStringTest(new Catchphrase(i)        );
+			createToStringTest(new Deck(i)               );
+			createToStringTest(new Friendship(i)         );
+			createToStringTest(new History(i)            );
+			createToStringTest(new Persona(i)            );
+			createToStringTest(new Pet(i)                );
+			createToStringTest(new ProfileAchievement(i) );
+			createToStringTest(new ProfileChampion(i)    );
+			createToStringTest(new ProfileSkill(i)       );
+			createToStringTest(new Skill(i)              );
+			createToStringTest(new Skin(i)               );
 		}
 
 		assertArrayEquals(phrasesTest.toArray(), phrasesExpecteds.toArray());
 	}
 
-	private void createToStringTest(Model model, String name, List<String> phrasesTest, List<String> phrasesExpecteds, Long i) {
+	private void createToStringTest(Model model) {
 		StringBuilder modelToString = new StringBuilder(" | Date: ")
 		.append(DateUtil.getDefaultFormat(new Date()))
 		.append(" | Class: ")
-		.append(name)
+		.append(model.getClass().getSimpleName())
 		.append(" | ID: ")
 		.append(model.getId())
 		.append(" | ");

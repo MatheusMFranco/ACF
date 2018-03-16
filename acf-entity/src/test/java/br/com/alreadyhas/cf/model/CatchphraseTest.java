@@ -18,8 +18,8 @@ public class CatchphraseTest implements ModelTest{
 		test.verifyTrue(odd, even);
 
 		//Test #2: All required values by constructor
-		odd = new Catchphrase("Oh, yeah!", new Character());
-		even = new Catchphrase("Oh, yeah!", new Character());
+		odd = new Catchphrase("Oh, yeah!", new Persona());
+		even = new Catchphrase("Oh, yeah!", new Persona());
 		test.verifyTrue(odd, even);
 
 		//Test #3: Id by set
@@ -43,8 +43,8 @@ public class CatchphraseTest implements ModelTest{
 		test.verifyFalse(new Catchphrase(1L), new Catchphrase(2L));
 
 		//Test #7: All required values by constructor
-		Catchphrase odd = new Catchphrase("Oh, yeah!", new Character(1L));
-		Catchphrase even = new Catchphrase("Fiambre!", new Character(2L));
+		Catchphrase odd = new Catchphrase("Oh, yeah!", new Persona(1L));
+		Catchphrase even = new Catchphrase("Fiambre!", new Persona(2L));
 		test.verifyFalse(odd, even);
 
 		//Test #8: Id by set
@@ -61,9 +61,9 @@ public class CatchphraseTest implements ModelTest{
 
 		//Test #10: Character Value
 		odd = new Catchphrase();
-		odd.setCharacter(new Character(1L));
+		odd.setCharacter(new Persona(1L));
 		even = new Catchphrase();
-		even.setCharacter(new Character(2L));
+		even.setCharacter(new Persona(2L));
 		test.verifyFalse(odd, even);
 
 	}
@@ -72,7 +72,7 @@ public class CatchphraseTest implements ModelTest{
 		Catchphrase catchphrase = new Catchphrase();
 		catchphrase.setId(1L);
 		catchphrase.setPhrase("Hello");
-		catchphrase.setCharacter(new Character());
+		catchphrase.setCharacter(new Persona());
 		return catchphrase;
 	}
 

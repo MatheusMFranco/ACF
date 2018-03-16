@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import lombok.Getter;
@@ -18,10 +19,11 @@ import lombok.Setter;
  * @author Matheus Franco
  * @category Model
  * @version 0.1
- * @see br.com.alreadyhas.cf.model.Character
+ * @see br.com.alreadyhas.cf.model.Persona
  *
  */
 @Entity
+@TableGenerator(name = "SKIN")
 public class Skin extends Model {
 
 	private static final long serialVersionUID = 6857729531361975491L;
@@ -30,7 +32,7 @@ public class Skin extends Model {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "SKIN_CHARACTER", nullable = false)
-	private Character skinCharacter;
+	private Persona skinCharacter;
 
 	@Getter
 	@Setter
@@ -53,7 +55,7 @@ public class Skin extends Model {
 		super(id);
 	}
 
-	public Skin(Character character, String name) {
+	public Skin(Persona character, String name) {
 		this.skinCharacter = character;
 		this.skinName = name;
 	}

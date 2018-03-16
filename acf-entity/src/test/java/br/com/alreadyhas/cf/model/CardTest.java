@@ -39,7 +39,7 @@ public class CardTest implements ModelTest{
 		odd = new Card();
 		odd.setId(1L);
 		byte[] photoOdd = {1,3};
-		odd.setCardDescription("A");
+		odd.setCardDescription("Destroy all cards.");
 		odd.setLevel(2);
 		odd.setPhoto(photoOdd);
 		odd.setPoints(2);
@@ -49,7 +49,7 @@ public class CardTest implements ModelTest{
 		even = new Card();
 		even.setId(1L);
 		byte[] photoEven = {2,1};
-		even.setCardDescription("B");
+		even.setCardDescription("Destroy 1 card.");
 		even.setLevel(3);
 		even.setPhoto(photoEven);
 		even.setPoints(3);

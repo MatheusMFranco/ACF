@@ -2,8 +2,11 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
+import br.com.alreadyhas.cf.preset.UserStatusEnum;
+import br.com.alreadyhas.cf.warn.PresetException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,13 +15,15 @@ import lombok.Setter;
  * <hr />
  * <p>This class represents the user.</p>
  * <hr />
- *  
+ * 
  * @author Matheus Franco
  * @category Model
  * @version 0.1
+ * @see br.com.alreadyhas.cf.preset.UserStatusEnum
  *
  */
-@Entity
+@Entity(name = "PROFILE_CHAMPION")
+@TableGenerator(name = "PROFILE_CHAMPION")
 public class ProfileChampion extends Model {
 
 	private static final long serialVersionUID = -7479431558785699752L;
@@ -41,7 +46,7 @@ public class ProfileChampion extends Model {
 
 	@Getter 
 	@Setter
-	@Column(name = "MOVES")
+	@Column(name = "ENCRIPTED")
 	private Boolean encripted;
 
 	@Getter 
@@ -84,6 +89,13 @@ public class ProfileChampion extends Model {
 	@Column(name = "USER_LOGIN", nullable = false)
 	private String login;
 
+	/**
+	 * @see br.com.alreadyhas.cf.preset.UserStatusEnum
+	 */
+	@Getter 
+	@Column(name = "USER_STATUS")
+	private Integer status;
+
 	public ProfileChampion() {/**/}
 
 	public ProfileChampion(Long id) {
@@ -94,6 +106,14 @@ public class ProfileChampion extends Model {
 		this.name = name;
 		this.email = email;
 		this.login = login;
+	}
+
+	public void setStatus(Integer status){
+		try {
+			this.status = UserStatusEnum.fromId(status).getCode();
+		} catch (PresetException e) {
+			PresetException.printSetMethod(e, getClass(), "Status", status);
+		}
 	}
 
 	@Override

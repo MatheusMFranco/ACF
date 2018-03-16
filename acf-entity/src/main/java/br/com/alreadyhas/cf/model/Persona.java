@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.FactionEnum;
@@ -26,7 +27,8 @@ import lombok.Setter;
  *
  */
 @Entity
-public class Character extends Model {
+@TableGenerator(name = "CHARACTER")
+public class Persona extends Model {
 
 	private static final long serialVersionUID = -7953605102474222091L;
 
@@ -66,13 +68,13 @@ public class Character extends Model {
 	@Column(name = "FACTION", nullable = false)
 	private Integer characterFaction;
 
-	public Character() {/**/}
+	public Persona() {/**/}
 
-	public Character(Long id) {
+	public Persona(Long id) {
 		super(id);
 	}
 
-	public Character(String name, Integer faction) {
+	public Persona(String name, Integer faction) {
 		this.characterName = name;
 		this.characterFaction = faction;
 	}
@@ -118,7 +120,7 @@ public class Character extends Model {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Character other = (Character) obj;
+		Persona other = (Persona) obj;
 		if (characterFaction == null) {
 			if (other.characterFaction != null)
 				return false;

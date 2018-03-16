@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
 import br.com.alreadyhas.cf.preset.FactionEnum;
@@ -28,6 +29,7 @@ import lombok.Setter;
  *
  */
 @Entity
+@TableGenerator(name = "PET")
 public class Pet extends Model {
 
 	private static final long serialVersionUID = -720661375713506377L;

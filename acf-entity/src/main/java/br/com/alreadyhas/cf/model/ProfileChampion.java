@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
@@ -35,7 +36,8 @@ public class ProfileChampion extends Model {
 
 	@Getter 
 	@Setter
-	@Column(name = "PHOTO")
+	@Lob
+	@Column(name = "PHOTO", columnDefinition = "BLOB")
 	private byte[] photo;
 	
 
@@ -51,7 +53,7 @@ public class ProfileChampion extends Model {
 
 	@Getter 
 	@Setter
-	@Column(name = "EMAILS", nullable = false)
+	@Column(name = "E_MAIL", nullable = false)
 	private String email;
 
 	@Getter 

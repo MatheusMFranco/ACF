@@ -26,8 +26,8 @@ import lombok.Setter;
  * @see br.com.alreadyhas.cf.preset.FactionEnum
  *
  */
-@Entity
-@TableGenerator(name = "CHARACTER")
+@Entity(name="persona")
+@TableGenerator(name = "PERSONA")
 public class Persona extends Model {
 
 	private static final long serialVersionUID = -7953605102474222091L;

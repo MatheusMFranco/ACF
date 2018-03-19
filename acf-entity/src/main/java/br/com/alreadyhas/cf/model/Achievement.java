@@ -2,6 +2,7 @@ package br.com.alreadyhas.cf.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.TableGenerator;
 
 import br.com.alreadyhas.cf.model.contract.Model;
@@ -39,7 +40,8 @@ public class Achievement extends Model {
 
 	@Getter
 	@Setter
-	@Column(name = "PHOTO", nullable = false)
+	@Lob
+	@Column(name = "PHOTO", nullable = false, columnDefinition = "BLOB")
 	private byte[] achievementPhoto;
 
 	public Achievement() {/**/}

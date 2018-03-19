@@ -3,6 +3,7 @@ package br.com.alreadyhas.cf.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.TableGenerator;
 
@@ -46,7 +47,8 @@ public class Skill extends Model {
 
 	@Getter
 	@Setter
-	@Column(name = "PHOTO", nullable = false)
+	@Lob
+	@Column(name = "PHOTO", nullable = false, columnDefinition = "BLOB")
 	private byte[] skillPhoto;
 
 	@Getter
